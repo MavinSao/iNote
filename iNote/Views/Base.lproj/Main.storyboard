@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Mjy-cv-ewi">
-                                <rect key="frame" x="0.0" y="88" width="414" height="728"/>
+                                <rect key="frame" x="0.0" y="93" width="414" height="723"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="noteCell" rowHeight="104" id="DCK-fJ-wZf" customClass="NoteTableViewCell" customModule="iNote" customModuleProvider="target">
@@ -82,7 +82,7 @@
                                     <constraint firstAttribute="height" constant="50" id="8lN-Ba-7tN"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Hello Sir, How was your day ?" id="17K-bD-8pm">
+                                    <barButtonItem title="10 Notes" id="17K-bD-8pm">
                                         <connections>
                                             <segue destination="FNm-QJ-tGG" kind="show" id="PYC-yE-xXO"/>
                                         </connections>
@@ -107,18 +107,20 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mjy-cv-ewi" secondAttribute="trailing" id="JwE-F0-ouj"/>
                             <constraint firstAttribute="bottom" secondItem="WRj-uO-OG0" secondAttribute="bottom" constant="30" id="NJb-Xa-zdl"/>
                             <constraint firstItem="WRj-uO-OG0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dT9-yT-fbl"/>
-                            <constraint firstItem="Mjy-cv-ewi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vSp-Bg-61s"/>
+                            <constraint firstItem="Mjy-cv-ewi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="vSp-Bg-61s"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="iNote" id="kJc-px-6uI">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="kFt-dK-FqA">
+                        <barButtonItem key="rightBarButtonItem" image="square.3.stack.3d.bottom.fill" catalog="system" id="kFt-dK-FqA">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="QpH-ft-3KT" kind="presentation" id="73o-5Z-ihQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="noteCount" destination="17K-bD-8pm" id="d9e-nk-AOc"/>
                         <outlet property="tableView" destination="Mjy-cv-ewi" id="tkt-0o-8gA"/>
                     </connections>
                 </viewController>
@@ -126,7 +128,7 @@
             </objects>
             <point key="canvasLocation" x="334.78260869565219" y="97.767857142857139"/>
         </scene>
-        <!--Note View Controller-->
+        <!--Write Your Note-->
         <scene sceneID="ziY-h8-35V">
             <objects>
                 <viewController id="FNm-QJ-tGG" customClass="NoteViewController" customModule="iNote" customModuleProvider="target" sceneMemberID="viewController">
@@ -135,9 +137,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rff-pI-t6U">
-                                <rect key="frame" x="20" y="155" width="374" height="707"/>
+                                <rect key="frame" x="20" y="98" width="374" height="764"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -145,13 +147,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Rff-pI-t6U" firstAttribute="top" secondItem="Emn-dd-7vI" secondAttribute="top" constant="15" id="Ay4-eY-Ck7"/>
+                            <constraint firstItem="Rff-pI-t6U" firstAttribute="top" secondItem="Emn-dd-7vI" secondAttribute="top" constant="10" id="Ay4-eY-Ck7"/>
                             <constraint firstItem="Emn-dd-7vI" firstAttribute="bottom" secondItem="Rff-pI-t6U" secondAttribute="bottom" id="Tdw-6O-a6X"/>
                             <constraint firstItem="Emn-dd-7vI" firstAttribute="trailing" secondItem="Rff-pI-t6U" secondAttribute="trailing" constant="20" id="fno-qa-oug"/>
                             <constraint firstItem="Rff-pI-t6U" firstAttribute="leading" secondItem="Emn-dd-7vI" secondAttribute="leading" constant="20" id="geO-i5-ZML"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ZPV-wT-sxg"/>
+                    <navigationItem key="navigationItem" title="Write Your Note" largeTitleDisplayMode="never" id="ZPV-wT-sxg"/>
                     <connections>
                         <outlet property="noteTextView" destination="Rff-pI-t6U" id="79W-0Q-FLe"/>
                     </connections>
@@ -201,6 +203,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="square.3.stack.3d.bottom.fill" catalog="system" width="128" height="124"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

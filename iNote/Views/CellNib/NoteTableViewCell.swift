@@ -16,7 +16,11 @@ class NoteTableViewCell: UITableViewCell {
     func config(note: Note){
         self.titleLabel.text = note.title
         self.descriptionLabel.text = note.descriptionText
-        self.lastUpdateLabel.text = note.lastUpdate!.getFormattedDate(format: "HH:mm:ss")
+        
+        let time = note.lastUpdate!.getFormattedDate(format: "HH:mm")
+        let day = note.lastUpdate!.getFormattedDate(format: "EEE")
+        
+        self.lastUpdateLabel.text = "\(day) . \(time)"
     }
     
 }

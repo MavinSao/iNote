@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     var isFiltering: Bool {
       return searchController.isActive && !isSearchBarEmpty
     }
+    @IBOutlet weak var noteCount: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         prepareSearchView()
+   
     }
     
     
@@ -37,7 +39,7 @@ class ViewController: UIViewController {
         // 2
         searchController.obscuresBackgroundDuringPresentation = false
         // 3
-        searchController.searchBar.placeholder = "Search Candies"
+        searchController.searchBar.placeholder = "Search Notes"
         // 4
         navigationItem.searchController = searchController
         // 5
@@ -46,6 +48,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         fetchNotes()
+        self.noteCount.title = notes.count > 1 ? "\(notes.count) Notes" : "\(notes.count) Note"
     }
     
     func fetchNotes(){

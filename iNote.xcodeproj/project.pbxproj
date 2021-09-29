@@ -21,6 +21,19 @@
 		D80FCFD92701B8C700E6BF91 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80FCFD82701B8C700E6BF91 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D8862E9E27040D4C003703E4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		D80FCFA827019CE300E6BF91 /* iNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80FCFAB27019CE300E6BF91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +156,7 @@
 				D80FCFA427019CE300E6BF91 /* Sources */,
 				D80FCFA527019CE300E6BF91 /* Frameworks */,
 				D80FCFA627019CE300E6BF91 /* Resources */,
+				D8862E9E27040D4C003703E4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -360,6 +374,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UVTA4V7W4B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/iNote",
+				);
 				INFOPLIST_FILE = iNote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -379,6 +398,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UVTA4V7W4B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/iNote",
+				);
 				INFOPLIST_FILE = iNote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
