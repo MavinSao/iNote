@@ -14,12 +14,14 @@ class ViewController: UIViewController {
     
     var notes: [Note] = []
     var filterNotes: [Note] = []
+    
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
     }
     var isFiltering: Bool {
       return searchController.isActive && !isSearchBarEmpty
     }
+    
     @IBOutlet weak var noteCount: UIBarButtonItem!
     
     override func viewDidLoad() {
@@ -30,8 +32,6 @@ class ViewController: UIViewController {
         prepareSearchView()
    
     }
-    
-    
     
     func prepareSearchView() {
         // 1
@@ -48,7 +48,6 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         fetchNotes()
-        self.noteCount.title = notes.count > 1 ? "\(notes.count) Notes" : "\(notes.count) Note"
     }
     
     func fetchNotes(){
@@ -64,7 +63,6 @@ class ViewController: UIViewController {
             }else{
                 destinationVC.note = notes[self.tableView.indexPathForSelectedRow!.row]
             }
-           
         }   
     }
     
@@ -73,7 +71,6 @@ class ViewController: UIViewController {
             guard let title = note.title else {return false}
             return title.lowercased().contains(searchText.lowercased())
       }
-      
       tableView.reloadData()
     }
 
@@ -84,9 +81,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
             if isFiltering {
-   
                 let note = filterNotes[indexPath.row]
                 filterNotes.remove(at: indexPath.row)
                 NoteManager.shared.deleteNote(uid: note.id!)
@@ -102,8 +97,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
+            self.noteCount.title = filterNotes.count > 1 ? "\(filterNotes.count) Notes" : "\(filterNotes.count) Note"
             return filterNotes.count
           }
+        self.noteCount.title = notes.count > 1 ? "\(notes.count) Notes" : "\(notes.count) Note"
         return self.notes.count
     }
     

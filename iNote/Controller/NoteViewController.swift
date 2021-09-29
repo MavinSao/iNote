@@ -89,6 +89,14 @@ class NoteViewController: UIViewController {
             NoteManager.shared.insertNote(title: noteTitle, description: noteDescription)
         }
     }
+    
+    
+    @IBAction func donePressed(_ sender: Any) {
+        self.noteTextView.resignFirstResponder()
+    }
+    
+    
+    
 }
 
 extension NoteViewController: UITextViewDelegate {

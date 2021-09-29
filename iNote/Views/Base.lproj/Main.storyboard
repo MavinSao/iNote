@@ -153,7 +153,13 @@
                             <constraint firstItem="Rff-pI-t6U" firstAttribute="leading" secondItem="Emn-dd-7vI" secondAttribute="leading" constant="20" id="geO-i5-ZML"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Write Your Note" largeTitleDisplayMode="never" id="ZPV-wT-sxg"/>
+                    <navigationItem key="navigationItem" title="Write Your Note" largeTitleDisplayMode="never" id="ZPV-wT-sxg">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="UJH-2J-BTK">
+                            <connections>
+                                <action selector="donePressed:" destination="FNm-QJ-tGG" id="E80-5x-in7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="noteTextView" destination="Rff-pI-t6U" id="79W-0Q-FLe"/>
                     </connections>
